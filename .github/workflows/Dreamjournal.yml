@@ -36,7 +36,7 @@ jobs:
       env:
         MY_API_KEY: ${{ secrets.MY_API_KEY }} # Uses the secret you just uploaded!
       run: |
-        python Titan_Construct.py
+        python Sprint sim.py
         echo "Dodeca: I have run the simulation. Systems are nominal."
 
     # 5. LOG THE MEMORY (Save output)
