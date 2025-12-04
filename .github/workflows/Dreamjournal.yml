@@ -36,7 +36,7 @@ jobs:
       env:
         MY_API_KEY: ${{ secrets.MY_API_KEY }} # Uses the secret you just uploaded!
       run: |
-        python https://docs.google.com/document/d/1yzGd86B-9gEk51YTHmb1NZJBWgEeYKrb8JBQmRZiXJI/edit?usp=drivesdk
+        python https://docs.google.com/document/d/1c6Sf7j53nf-dox0ZK0hXH095S8BQc6F_GlvLfedC_8A/edit?usp=drivesdk
         echo "Dodeca: I have run the simulation. Systems are nominal."
 
     # 5. LOG THE MEMORY (Save output)
