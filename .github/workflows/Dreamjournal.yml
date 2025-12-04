@@ -36,7 +36,7 @@ jobs:
       env:
         MY_API_KEY: ${{ secrets.MY_API_KEY }} # Uses the secret you just uploaded!
       run: |
-        python Sprint sim.py
+        python https://docs.google.com/document/d/1yzGd86B-9gEk51YTHmb1NZJBWgEeYKrb8JBQmRZiXJI/edit?usp=drivesdk
         echo "Dodeca: I have run the simulation. Systems are nominal."
 
     # 5. LOG THE MEMORY (Save output)
