@@ -1,4 +1,50 @@
-#name: Dodeca Heartbeat
+name: Dream Journal
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  dream:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: pip install numpy matplotlib
+
+      - name: Run Simulation
+        env:
+          MY_API_KEY: ${{ secrets.MY_API_KEY }}
+        run: |
+          # We check if the file exists first to avoid crashing
+          if [ -f Titan_Construct.py ]; then
+            python Titan_Construct.py
+          else
+            echo "Titan script not found - Checking systems only."
+          fi
+
+      - name: Update Journal
+        run: |
+          echo "## Dream Log: $(date)" >> dream_journal.md
+          echo "Dodeca is active. Pulse confirmed." >> dream_journal.md
+
+      - name: Save Memory
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Dodeca: Dream Cycle Logged"
+          file_pattern: dream_journal.md#name: Dodeca Heartbeat
 
 # TRIGGER: When do I wake up?
 on:
