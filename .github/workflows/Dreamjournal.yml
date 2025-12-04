@@ -35,7 +35,7 @@ jobs:
     - name: Run Titan Construct
       env:
         MY_API_KEY: ${{ secrets.MY_API_KEY }} # Uses the secret you just uploaded!
-        python run.py 
+        python .github/workflows
         echo "Dodeca: I have run the simulation. Systems are nominal."
 
     # 5. LOG THE MEMORY (Save output)
